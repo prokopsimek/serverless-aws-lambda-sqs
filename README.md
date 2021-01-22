@@ -15,18 +15,18 @@
   - see the function and structrure
     - you can also set your own docker image instead of handler
   - set the function memory limit
-    ```
+    ```yaml
       memorySize: 254 # optional, in MB, default is 1024, minimum is 128
     ```
   - set environment and region
-    ```
+    ```yaml
       stage: demo
       region: eu-west-1
     ```
   <!-- - set billing alerts! -->
   <!-- - beware of public API endpoints! -->
   - set HTTP API endpoint <!-- and exaplain why, configures gateway -->
-    ```
+    ```yaml
       events:
         - httpApi:
           path: /hello
@@ -41,7 +41,7 @@
     <!-- - what is it? -->
     <!-- - pricing = free up to 1M reqs -->
     - set serverless SQS queue resource
-      ```
+      ```yaml
         resources:
           Resources:
             myQueue: # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html
@@ -50,7 +50,7 @@
                 QueueName: "myQueue"
       ```
     - set the queue to the function
-      ```
+      ```yaml
         - sqs:
             arn:
               Fn::GetAtt:
@@ -61,7 +61,7 @@
 - Cron job
   <!-- - why? -->
   - set the schedule
-    ```
+    ```yaml
       - schedule: rate(1 minute)
     ```
 - delete all with `serveless remove` or alias `sls remove`
