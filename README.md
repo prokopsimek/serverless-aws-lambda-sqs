@@ -32,6 +32,10 @@
           path: /hello
           method: get
     ```
+  - add code to the beginning of the function
+    ```js
+      console.log("EVENT: \n" + JSON.stringify(event, null, 2))
+    ```
   - deploy and see in AWS account `serverless deploy` or `sls deploy`
   - trigger API endpoint from the cmd output
   - see logs in console `sls logs -f hello`
